@@ -9,6 +9,7 @@ const qs = require('qs');
 import { API_ROOT, AUTH_ROOT } from '../config';
 import { STATE } from '../state';
 import { authHeaders } from '../utils';
+import AuthBoxcasterRoutes from './auth_boxcaster_routes';
 import AuthBroadcastRoutes from './auth_broadcast_routes';
 import AuthChannelRoutes from './auth_channel_routes';
 
@@ -53,6 +54,10 @@ export default class AuthenticatedRoutes {
 
   get channels() {
     return new AuthChannelRoutes(authHeaders());
+  }
+
+  get boxcasters() {
+    return new AuthBoxcasterRoutes(authHeaders());
   }
 
 }
